@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex's site</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- remove some or fold too?-->
+  <div tabidex="0" id="navigate">
+    <ul>
+      <li><a onclick="openWindow('welcome')">Welcome</a></li>
+      <li><a onclick="openWindow('guestbook')">Guestbook</a></li>
+      <li><a onclick="openWindow('contact')">Contact</a></li>
+      <li><a onclick="openWindow('moonphase')">Moon Phases</a></li>
+      <li><a onclick="openWindow('video')">Video</a></li>
+      <li><a onclick="openWindow('artgallery')">Art Gallery</a></li>
+      <li><a onclick="openWindow('oddeven')">Odd even game</a></li>
+      <li><a onclick="openWindow('weather')">Weather</a></li>
+      <li><a onclick="openWindow('updateslog')"></a>Updates Log</li>
+    </ul>
+    </div>
+
+  </div>
+
+  <div tabindex="0" id="desktop">
+    <!-- Icons -->
+    <div class="icon" draggable="true" onclick="openWindow('welcome')">
+      <img src="images/loyalty_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="welcome">
+      <span>Welcome!</span>
+    </div>
+    <div class="icon" onclick="openWindow('guestbook')">
+      <img src="images/book_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="guest book">
+      <span>GuestBook</span>
+    </div>
+    <div class="icon" onclick="openWindow('contact')">
+      <img src="images/contact_page_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="contact">
+      <span>Contact</span>
+    </div>
+    <div class="icon" onclick="openWindow('interests')">
+      <img src="images/wand_stars_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="my interests">
+      <br>
+      <span>My interests</span>
+    </div>
+    <div class="icon" onclick="openWindow('moonphase')">
+      <img src="images/moon_stars_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="moon phase">
+      <span>Current Moon Phase</span>
+    </div>
+    <div class="icon" onclick="openWindow('video')">
+      <img src="images/live_tv_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="video player">
+      <br>
+      <span>Video Player</span>
+    </div>
+    <div class="icon" onclick="openWindow('artgallery')">
+      <img src="images/palette_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="art gallery">
+      <br>
+      <span>Art Gallery</span>
+    </div>
+    <div class="icon" onclick="openWindow('oddeven')">
+        <img src="images/playing_cards_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="odd or even game">
+        <span>Odd even game</span>
+    </div>
+    <div class="icon" onclick="openWindow('weather')">
+      <img src="images/thunderstorm_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="weather">
+      <span>Weather</span>
+    </div>
+    <div class="icon" onclick="openWindow('updateslog')">
+      <img src="images/browser_updated_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="updates log">
+    <span>Updates log</span>
+    </div>  
+  </div>
+
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <button role="button" tabindex="0" onclick="toggleStartMenu()">Start</button>
+    <div id="clock"></div>
+  </div>
+<!-- fold content?-->
+  <!-- Start Menu -->
+  <div tabindex="0" id="start-menu" class="hidden">
+    <ul>
+      <li onclick="openWindow('guestbook')">Guestbook</li>
+      <li onclick="openWindow('welcome')">Welcome!</li>
+      <li onclick="openWindow('contact')">Contact</li>
+      <li onclick="openWindow('moonphase')">Current moon</li>
+      <li onclick="openWindow('video')">Video player</li>
+      <li onclick="openWindow('artgallery')">Art Gallery</li>
+      <li onclick="openWindow('oddeven')">Odd or even game</li>
+      <li onclick="openwindow('interests')">My interests</li>
+    </ul>
+  </div>
+
+  <!-- Window Container -->
+  <div id="windows-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
