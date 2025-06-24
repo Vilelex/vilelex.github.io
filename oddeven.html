@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+</head>
+<body>
+    <h2>Odd or Even Game</h2>
+
+  <label for="choice">Choose "odd" or "even":</label>
+  <select id="choice">
+    <option value="odd">Odd</option>
+    <option value="even">Even</option>
+  </select>
+
+  <label for="number">Choose a number (1 to 5):</label>
+  <input type="number" id="number" min="1" max="5">
+
+  <button onclick="play()">Play</button>
+  <button onclick="resetGame()">Reset</button>
+
+  <div id="result"></div>
+
+    <script>
+    function play() {
+      const playerChoice = document.getElementById('choice').value;
+      const playerNumber = parseInt(document.getElementById('number').value);
+
+      if (isNaN(playerNumber) || playerNumber < 1 || playerNumber > 5) {
+        alert("Please enter a number between 1 and 5.");
+        return;
+      }
+
+      const computerNumber = Math.floor(Math.random() * 5) + 1;
+      const computerChoice = playerChoice === "odd" ? "even" : "odd";
+      const sum = playerNumber + computerNumber;
+      const result = sum % 2 === 0 ? "even" : "odd";
+
+      const winMessage = (result === playerChoice)
+        ? "🎉 Player wins!"
+        : "💻 Computer wins!";
+
+      document.getElementById('result').innerHTML = `
+        <p>You chose: ${playerNumber} (${playerChoice})</p>
+        <p>Computer chose: ${computerNumber} (${computerChoice})</p>
+        <p>Sum is ${sum} (${result})</p>
+        <h3>${winMessage}</h3>
+      `;
+    }
+
+    function resetGame() {
+      document.getElementById('choice').value = "odd";
+      document.getElementById('number').value = "";
+      document.getElementById('result').innerHTML = "";
+    }
+    </script>
+</body>
+</html>

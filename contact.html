@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact page</title>
+    <link rel="stylesheet" href="styles.css">
+      <style>
+    body {position: center;
+    }
+
+    @font-face {
+      font-family:'MyFont' ;
+      src: url('fonts/Azeret_Mono/AzeretMono-VariableFont_wght.ttf');
+    }
+
+    #title {
+      font-family: 'MyFont';
+  }
+
+  </style>
+</head>
+<body>
+    
+    <h2 id="title" >Contact Me!</h2>
+    <form action="https://formspree.io/f/xeoklobe" method="post">
+
+    
+    <p>Leave a message:</p>
+
+    <div id="name">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+        <br>
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+        <br>
+        <label for="email">Your email</label>
+        <input type="text" name="email" placeholder="Your email.." required>
+        <br>
+
+        </div>
+
+         <label for="subject">Subject</label>
+         <br>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+      </form>   
+</body>
+</html> 
+
+

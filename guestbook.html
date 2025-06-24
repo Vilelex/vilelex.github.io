@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook</title>
+    
+    <style>
+    #layout {text-align: center;}
+    body {background-image: linear-gradient( rgb(121, 12, 83), rgb(112, 45, 74));}
+    button{background-color: rgb(41, 39, 50);
+    height: 30px;}
+    #entries {
+      margin: 20px;
+      border-style: double;
+      border-color: rgb(0, 0, 0);
+    border-width: 6px;}
+  </style>
+
+</head>
+<body>
+  <div id="layout">
+    <h1>Guestbook</h1>
+    <form id="guestForm">
+        <input type="text" id="name" placeholder="Your name" required>
+        <br>
+        <textarea id="message" placeholder="Your message" rows="4"required></textarea>
+        <br>
+        <button type="submit">Sign Guestbook</button>
+    </form>
+    </div>
+
+    <div id="entries"></div>
+
+  <script>
+    const form = document.getElementById('guestForm');
+    const entriesDiv = document.getElementById('entries');
+
+    // Load existing entries
+    const entries = JSON.parse(localStorage.getItem('guestbookEntries')) || [];
+
+    function renderEntries() {
+      entriesDiv.innerHTML = '';
+      entries.forEach(entry => {
+        const div = document.createElement('div');
+        div.className = 'entry';
+        div.innerHTML = `
+          <h4>${entry.name}</h4>
+          <p>${entry.message}</p>
+        `;
+        entriesDiv.prepend(div); // newest on top
+      });
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (name && message) {
+        entries.push({ name, message });
+        localStorage.setItem('guestbookEntries', JSON.stringify(entries));
+        renderEntries();
+        form.reset();
+      }
+    });
+
+    renderEntries();
+    </script>
+</body>
+</html>

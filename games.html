@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose a game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    .icon {
+      margin: 10px;
+      padding: 10px;
+      background: #eee;
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: background 0.2s ease;
+    }
+
+    .icon:hover {
+      background: #e0e0e0;
+    }
+
+    .app-window {
+      position: absolute; /* Changed from fixed to absolute for easier dragging calculations */
+      top: 100px;
+      left: 100px;
+      width: 600px;
+      height: 400px;
+      background: white;
+      border: 1px solid #666;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      overflow: hidden; /* Changed from auto to hidden to prevent scrollbars on the window itself */
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title-bar {
+      background: #0078D7;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      position: relative;
+      cursor: grab; /* Indicate draggable */
+      flex-shrink: 0; /* Prevent title bar from shrinking */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title-bar:active {
+      cursor: grabbing;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0 5px;
+      line-height: 1;
+    }
+
+    .close-btn:hover {
+      background-color: rgba(255,255,255,0.2);
+      border-radius: 3px;
+    }
+
+    .content {
+      padding: 10px;
+      flex-grow: 1; /* Allow content to take remaining space */
+      overflow: auto; /* Allow content to scroll if needed */
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pick a game!:</h1>
+
+  <div class="icon" onclick="openWindow('game1.html','🎮 Odd or Even')">
+    <span>🎮Odd or Even</span>
+  </div>
+
+  <div class="icon" onclick="openWindow('game2.html', 'Something')">
+    <span>something</span>
+  </div>
+
+  <div class="icon" onclick="openWindow('game3.html', 'okay')">
+    <span>okay</span>
+  </div>
+
+  <h2>Other!:</h2>
+
+  <div class="icon" onclick="openWindow('other1.html', 'JavaScript Light Project')">
+    <span>Javascript light project</span>
+  </div>
+
+  <div id="appArea"></div>
+
+  <script>
+    let windowCount = 0;
+    let highestZIndex = 1000; // To manage window stacking
+
+    function openWindow(url, title='Game Window') {
+      windowCount++;
+      highestZIndex++;
+
+      // Create a new app window div
+      const appWindow = document.createElement('div');
+      appWindow.className = 'app-window';
+      appWindow.id = `appWindow${windowCount}`;
+      appWindow.style.zIndex = highestZIndex; // Set initial z-index
+
+      appWindow.innerHTML = `
+        <div class="title-bar">
+          <span>${title}</span>
+          <button class="close-btn" onclick="document.getElementById('${appWindow.id}').remove()">×</button>
+        </div>
+        <div class="content">Loading...</div>
+      `;
+
+      document.getElementById('appArea').appendChild(appWindow);
+
+      // Bring window to front on click
+      appWindow.addEventListener('mousedown', () => {
+        if (parseInt(appWindow.style.zIndex) !== highestZIndex) {
+          highestZIndex++;
+          appWindow.style.zIndex = highestZIndex;
+        }
+      });
+
+      // Make the window draggable
+      const titleBar = appWindow.querySelector('.title-bar');
+      let isDragging = false;
+      let offsetX, offsetY;
+
+      titleBar.addEventListener('mousedown', e => {
+        if (e.button === 0) { // Only left mouse button
+          isDragging = true;
+          offsetX = e.clientX - appWindow.getBoundingClientRect().left;
+          offsetY = e.clientY - appWindow.getBoundingClientRect().top;
+          titleBar.style.cursor = 'grabbing';
+          appWindow.style.transition = 'none'; // Disable transition during drag
+        }
+      });
+
+      document.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+
+        appWindow.style.left = `${e.clientX - offsetX}px`;
+        appWindow.style.top = `${e.clientY - offsetY}px`;
+      });
+
+      document.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          titleBar.style.cursor = 'grab';
+          appWindow.style.transition = ''; // Re-enable transition
+        }
+      });
+
+      // Fetch the HTML content of the URL and inject into content div
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load content');
+          return response.text();
+        })
+        .then(html => {
+          appWindow.querySelector('.content').innerHTML = html;
+        })
+        .catch(err => {
+          appWindow.querySelector('.content').innerHTML = `<p style="color:red;">Error loading content: ${err.message}</p>`;
+        });
+    }
+  </script>
+
+</body>
+</html>
+
+      // Create a new app window div
+      const appWindow = document.createElement('div');
+      appWindow.className = 'app-window';
+      appWindow.id = `appWindow${windowCount}`;
+
+      appWindow.innerHTML = `
+        <div class="title-bar">
+          ${title}
+          <button class="close-btn" onclick="document.getElementById('${appWindow.id}').remove()">×</button>
+        </div>
+        <div class="content">Loading...</div>
+      `;
+
+      document.getElementById('appArea').appendChild(appWindow);
+
+      // Fetch the HTML content of the URL and inject into content div
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load content');
+          return response.text();
+        })
+        .then(html => {
+          appWindow.querySelector('.content').innerHTML = html;
+        })
+        .catch(err => {
+          appWindow.querySelector('.content').innerHTML = `<p style="color:red;">Error loading content: ${err.message}</p>`;
+        });
+    }
+  </script>
+
+</body>
+</html>

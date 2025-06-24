@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+<style>
+    @font-face{
+        font-family: 'MyFont';
+        src: url('fonts/Lora/Lora-VariableFont_wght.ttf');
+    }
+    body{
+        font-family:'MyFont';
+        src: url('fonts/Bree_Serif/BreeSerif-Regular.ttf');
+        position: center;
+    }
+
+    .container{
+        background-color: rgb(111, 103, 177);
+        border-radius: 1px;
+        width:auto;
+        position: center;
+        margin: 2px;
+        padding: 20px;
+    }
+
+    .title{
+        font-family: 'MyFont';
+        src: url('fonts/Birthstone/Birthstone-Regular.ttf');
+        
+    }
+    .weatherInfo{
+        margin-top: 20px;
+    }
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Weather</h1>
+        <input type="text" id="locationInput" placeholder="Enter a city">
+        <button id="searchButton">Search</button>
+        <div class="weatherInfo">
+            <h2 id="location">Location:</h2>
+            <p id="temperature">Temperature:</p>
+        </div>
+    </div>
+
+
+<script>
+    const apiKey = '058f0aea6f31cff52e390cf00cd12601';
+    const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+
+    const locationInput = document.getElementById('locationInput');
+    const searchButton = document.getElementById('searchButton');
+    const locationElement = document.getElementById('location');
+    const temperatureElement = document.getElementById('temperature');
+    const descriptionElement = document.getElementById('description');
+
+    searchButton.addEventListener('click', () => {
+    const location = locationInput.value;
+    if (location) {
+        fetchWeather(location);
+    }
+});
+
+function fetchWeather(location) {
+    const url = `${apiUrl}?q=${location}&appid=${apiKey}&units=metric`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            locationElement.textContent = data.name;
+            temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
+            descriptionElement.textContent = data.weather[0].description;
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+        });
+}
+
+
+</script>
+</body>
+</html>
