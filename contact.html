@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact page</title>
-    <link rel="stylesheet" href="styles.css">
+   
       <style>
     body {position: center;
     }
@@ -18,12 +18,17 @@
       font-family: 'MyFont';
   }
 
+  #message {
+    font-size: 18px;
+    font-family: monospace;
+  }
+
   </style>
 </head>
 <body>
     
     <h2 id="title" >Contact Me!</h2>
-    <form action="https://formspree.io/f/xeoklobe" method="post">
+    <form id="message" action="https://formspree.io/f/xeoklobe" method="post">
 
     
     <p>Leave a message:</p>
@@ -41,7 +46,7 @@
 
         </div>
 
-         <label for="subject">Subject</label>
+         <label for="subject">Subject:</label>
          <br>
         <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
         <br>

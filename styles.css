@@ -79,6 +79,8 @@ background-color: #2d2d2d;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   resize: both;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .window-header {
@@ -91,6 +93,4 @@ background-color: #2d2d2d;
 .window-content {
   padding: 5px;
   flex: 1;
-  width: 377px;
-  height: 340px;
 }
