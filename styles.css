@@ -22,7 +22,7 @@ li{
 }
 li a, .dropdownbtn{
   display: inline-block;
-  color: white;
+  color: rgb(245, 243, 243);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -68,38 +68,50 @@ li.dropdown{
   display: block;
 }
 
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf');
+}
 .icon {
   width: 80px;
   text-align: center;
   margin-bottom: 10px;
   cursor: pointer;
+  font-family: 'MyFont';
+  font-weight: bold;
 }
 
 .icon:focus-visible{
   outline: 2px dashed pink;
   background-color: #f0f0f0;
 }
+
 #taskbar {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 40px;
-  background: rgba(30, 30, 30, 0.9);
+  background: rgba(230, 230, 230, 0.95);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
-  color: rgb(255, 255, 255);
+  color: rgb(54, 54, 54);
+}
+
+.start {
+  color: black;
+  font-weight: bold;
+  background-color: #525050;
 }
 
 #start-menu {
   position: absolute;
   bottom: 40px;
   left: 0;
-  background: white;
   width: 200px;
-  border: 1px solid #ccc;
+  border: 1px solid #211a1a;
 }
 
 .hidden {
@@ -108,8 +120,8 @@ li.dropdown{
 
 .window {
   position: absolute;
-  width: 400px;
-  height: 340px;
+  width: 450px;
+  height: 402px;
   background: white;
   border: 1px solid #000;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);

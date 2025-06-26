@@ -36,7 +36,7 @@
 
 button.prev,
 button.next {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0,0,0,0.5);
@@ -54,23 +54,39 @@ button:hover {
   background: rgba(0,0,0,0.7);
 }
 
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf');
+}
+
+h4 {
+position:absolute;
+top: 0;
+text-align:center;
+font-family: 'MyFont';
+color: #7e627e;
+}
+
   </style>
 </head>
 <body>
 
+  <h4>A collection of works i created during my time at college.</h4>
+
 <div class="carousel">
   <div class="slides">
-    <img src="images/IMG_1.jpeg" alt="Slide 1" class="active">
-    <img src="images/IMG_2.jpeg" alt="Slide 2" height="auto" >
-    <img src="images/IMG_3.jpeg" alt="Slide 3">
+    <img src="images/IMG_1.jpeg" alt="Slide 1" class="active" >
+    <img src="images/IMG_5.JPEG" alt="Slide 2" >
+    <img src="images/IMG_4.jpeg" alt="Slide 3" >
   </div>
 
   <button class="prev">&#10094;</button>
   <button class="next">&#10095;</button>
   <p style="text-align:center; font-size: 0.9rem;">
-    Use ← and → to navigate the carousel</p>
-
+   Use the arrows to change the image</p>
 </div>
+
+
 
 <script>
   const slides = document.querySelectorAll(".slides img");

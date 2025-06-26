@@ -12,72 +12,133 @@
   <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Welcome!</a>
     <div class="dropdown-content">
-    <a onclick="openWindow('welcome')">Welcome!</a>
-    <a onclick="openWindow('contact')">Contact me</a>
-    <a onclick="openWindow('guestbook')">Guestbook</a>
-    <a onclick="openWindow('updateslog')">Updates log</a>
+    <a role="button"
+  tabindex="0" onclick="openWindow('welcome')" 
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('welcome')"
+  aria-label="Open Welcome window" >Welcome!</a>
+    <a role="button"
+  tabindex="0" onclick="openWindow('contact')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('contact')"
+  aria-label="Open Contact window">Contact me</a>
+    <a role="button"
+  tabindex="0" onclick="openWindow('guestbook')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('guestbook')"
+  aria-label="Open GuestBook Window">Guestbook</a>
+    <a role="button"
+  tabindex="0" onclick="openWindow('updateslog')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('updateslog')"
+  aria-label="Open Updates Log window">Updates log</a>
     </div>
   </li>
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Entertainment</a>
       <div class="dropdown-content">
-      <a onclick="openWindow('artgallery')">Art Gallery</a>
-      <a onclick="openWindow('oddeven')">Odd even game</a>
-      <a onclick="openWindow('video')">Video</a>
+      <a role="button"
+  tabindex="0"onclick="openWindow('artgallery')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('artgallery')"
+  aria-label="Open Art Gallery Window">Art Gallery</a>
+      <a role="button"
+  tabindex="0" onclick="openWindow('oddeven')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('oddeven')"
+  aria-label="Open Odd Even Game window">Odd even game</a>
+      <a role="button"
+  tabindex="0" onclick="openWindow('cats')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('cats')"
+  aria-label="Open My Cats window">My Cats</a>
+      <a role="button"
+  tabindex="0" onclick="openWindow('video')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('video')"
+  aria-label="Open Video window">Video</a>
       </div>
     </li>
       <li class="dropdown">
       <a href="javascript:void(0)" class="dropbtn">Weather</a>
         <div class="dropdown-content"> 
-      <a onclick="openWindow('weather')">Weather</a>
-        <a onclick="openWindow('moonphase')">Moon Phases</a>
+      <a role="button"
+  tabindex="0" onclick="openWindow('weather')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('weather')"
+  aria-label="Open Weather window">Weather</a>
+        <a role="button"
+  tabindex="0"  onclick="openWindow('moonphase')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('moonphases')"
+  aria-label="Open Moon Phases window">Moon Phases</a>
         </div>
       </li>
   </ul>
 
   <div tabindex="0" id="desktop">
     <!-- Icons -->
-    <div class="icon" draggable="true" onclick="openWindow('welcome')">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('welcome')" 
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('welcome')"
+  aria-label="Open Welcome window">
       <img src="images/loyalty_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="welcome">
       <span>Welcome!</span>
     </div>
-    <div class="icon" onclick="openWindow('guestbook')">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('guestbook')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('guestbook')"
+  aria-label="Open Guestbook window">
       <img src="images/book_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="guest book">
       <span>GuestBook</span>
     </div>
-    <div class="icon" onclick="openWindow('contact')">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('contact')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('contact')"
+  aria-label="Open Contact window">
       <img src="images/contact_page_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="contact">
       <span>Contact</span>
     </div>
-    <div class="icon" onclick="openWindow('interests')">
-      <img src="images/wand_stars_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="my interests">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('cats')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('cats')"
+  aria-label="Open My Cats window">
+      <img src="images/wand_stars_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="my cats">
       <br>
-      <span>My interests</span>
+      <span>My Cats</span>
     </div>
-    <div class="icon" onclick="openWindow('moonphase')">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('moonphase')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('moonphase')"
+  aria-label="Open Moon Phase window">
       <img src="images/moon_stars_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="moon phase">
       <span>Current Moon Phase</span>
     </div>
-    <div class="icon" onclick="openWindow('video')">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('video')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('video')"
+  aria-label="Open Video Player window">
       <img src="images/live_tv_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="video player">
       <br>
       <span>Video Player</span>
     </div>
-    <div class="icon" onclick="openWindow('artgallery')">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('artgallery')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('artgallery')"
+  aria-label="Open Art Gallery window">
       <img src="images/palette_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="art gallery">
       <br>
       <span>Art Gallery</span>
     </div>
-    <div class="icon" onclick="openWindow('oddeven')">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('oddeven')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('oddeven')"
+  aria-label="Open Odd Even Game window">
         <img src="images/playing_cards_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="odd or even game">
         <br>
         <span>Odd even game</span>
     </div>
-    <div class="icon" onclick="openWindow('weather')">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('weather')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('weather')"
+  aria-label="Open Weather window">
       <img src="images/thunderstorm_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="weather">
       <span>Weather</span>
     </div>
-    <div class="icon" onclick="openWindow('updateslog')">
+    <div class="icon" role="button"
+  tabindex="0" onclick="openWindow('updateslog')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('updateslog')"
+  aria-label="Open Updates Log window">
       <img src="images/browser_updated_24dp_6B2346_FILL0_wght400_GRAD0_opsz24.png" alt="updates log">
     <span>Updates log</span>
     </div>  
@@ -85,21 +146,45 @@
 
   <!-- Taskbar -->
   <div id="taskbar">
-    <button role="button" tabindex="0" onclick="toggleStartMenu()">Start</button>
+    <button role="button" class="start" tabindex="0" onclick="toggleStartMenu()">Start</button>
     <div id="clock"></div>
   </div>
 
   <!-- Start Menu -->
   <div tabindex="0" id="start-menu" class="hidden">
     <ul>
-      <li onclick="openWindow('guestbook')">Guestbook</li>
-      <li onclick="openWindow('welcome')">Welcome!</li>
-      <li onclick="openWindow('contact')">Contact</li>
-      <li onclick="openWindow('moonphase')">Current moon</li>
-      <li onclick="openWindow('video')">Video player</li>
-      <li onclick="openWindow('artgallery')">Art Gallery</li>
-      <li onclick="openWindow('oddeven')">Odd or even game</li>
-      <li onclick="openwindow('interests')">My interests</li>
+      <li role="button"
+  tabindex="0" onclick="openWindow('guestbook')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('guestbook')"
+  aria-label="Open Guestbook window">Guestbook|</li>
+      <li role="button"
+  tabindex="0" onclick="openWindow('welcome')" 
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('welcome')"
+  aria-label="Open Welcome window">Welcome!|</li>
+      <li role="button"
+  tabindex="0" onclick="openWindow('contact')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('contact')"
+  aria-label="Open Contact window">Contact|</li>
+      <li role="button"
+  tabindex="0" onclick="openWindow('moonphase')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('moonphase')"
+  aria-label="Open Moon Phase window">Current moon|</li>
+      <li role="button"
+  tabindex="0" onclick="openWindow('video')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('video')"
+  aria-label="Open Video Player window">Video player|</li>
+      <li role="button"
+  tabindex="0" onclick="openWindow('artgallery')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('artgallery')"
+  aria-label="Open Art Gallery window">Art Gallery|</li>
+      <li role="button"
+  tabindex="0" onclick="openWindow('oddeven')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('oddeven')"
+  aria-label="Open Odd Even Game window">Odd or even game|</li>
+      <li role="button"
+  tabindex="0" onclick="openwindow('cats')"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') openWindow('cats')"
+  aria-label="Open My Cats window">My cats|</li>
     </ul>
   </div>
 

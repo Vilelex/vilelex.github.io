@@ -5,18 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games</title>
     <style>
-      @font-face {
-        font-family: 'MyFont';
-        src: url(fonts/Lora/Lora-VariableFont_wght.ttf);
-      }
-body{
-  font-size: 22px;
-  font-family: 'MyFont';
+
+@font-face {
+font-family: 'MyFont';
+src: url(fonts/Lora/Lora-VariableFont_wght.ttf);
 }
-    </style>
+
+body{
+  font-size: 20px;
+  font-family: 'MyFont';
+  background-color: rgb(66, 61, 56);
+}
+
+h2{
+  outline: auto;
+  padding: 5px;
+}
+
+#result{
+    line-height: 15px;
+}
+
+button{
+  background-color: rgb(65, 3, 38);
+}
+
+</style>
 </head>
 <body>
-    <h2>Odd or Even Game</h2>
+    <h2><u>Odd or Even Game</u></h2>
 
   <label for="choice">Choose "odd" or "even":</label>
   <select id="choice">
